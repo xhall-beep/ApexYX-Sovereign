@@ -9,7 +9,8 @@ Built and battle-tested on a Google Pixel (Termux). Runs anywhere Python does.
 ## Install (Termux or any Linux)
 
 ```bash
-cd mesh_router && bash router_up.sh   # repeat per tier, any order
+cd mesh_bus && bash bus_up.sh       # tier 1 first: gives the mesh shared memory
+cd ../mesh_router && bash router_up.sh   # repeat per tier, any order
 python3 mesh_router.py --selftest      # prove it before you trust it
 ```
 
@@ -17,6 +18,7 @@ python3 mesh_router.py --selftest      # prove it before you trust it
 
 | Tier | Node | What it does |
 |---|---|---|
+| t1 | bus | shared memory: sealed append-only sqlite bus + `mesh` CLI |
 | t2 | router | LLM (or keyword-fallback) request routing onto the bus |
 | t3 | exec | command execution node |
 | t4 | sched | scheduler |
@@ -27,8 +29,8 @@ python3 mesh_router.py --selftest      # prove it before you trust it
 | t9 | guard | policy guard — refusals are the product |
 | t10 | mirror | self-mirroring / audit |
 
-t1 (bus) ships with the Pro pack's installer or bring your own event bus —
-every node degrades gracefully without it.
+Every node degrades gracefully if the bus is offline — install t1 first anyway;
+it's what turns nine scripts into one organism.
 
 ## Pro: tiers 11–33 (paid)
 
