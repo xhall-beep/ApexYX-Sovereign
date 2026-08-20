@@ -39,7 +39,9 @@ macroprudential control, supervision, accountability, and a fiscal backstop —
 sealed commitments, escalation ladders, clawbacks, taxpayer-loss accounting.
 **5,000+ hermetic self-test checks across the stack.**
 
-→ Get it: https://slackstack-1a8ac6.viktor.page/apexyx-mesh
+→ Buy it: https://stephenhall8.gumroad.com/l/apexyxpro ($49 CAD, instant download)
+
+Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-mesh
 
 ## Design rules the whole mesh obeys
 
