@@ -32,12 +32,14 @@ python3 mesh_router.py --selftest      # prove it before you trust it
 Every node degrades gracefully if the bus is offline — install t1 first anyway;
 it's what turns nine scripts into one organism.
 
-## Pro: tiers 11–33 (paid)
+## Pro: tiers 11–34 (paid)
 
 The full financial-grade stack: federation, sensing, voice, recall, reasoning,
 safe-act, negotiation, self-repair, forecasting, budgeting, markets, coalitions,
 staking, insurance, reinsurance, solvency, liquidity, clearing/CCP, recovery,
-macroprudential control, supervision, accountability, and a fiscal backstop —
+macroprudential control, supervision, accountability, a fiscal backstop, and a polity tier —
+mandates, legislature votes, vetoes, sunset clocks and a debt brake deciding
+who may aim that backstop —
 sealed commitments, escalation ladders, clawbacks, taxpayer-loss accounting.
 **5,000+ hermetic self-test checks across the stack.**
 
