@@ -4,6 +4,8 @@
 
 `termux` · `android` · `local-ai` · `agentic` · `offline-first` · `self-hosted` · `sqlite`
 
+<p align="center"><img src="assets/mesh-demo.svg" alt="mesh CLI demo: post, task, tail, verify, status" width="720"></p>
+
 Pure Python 3 + bash. No cloud, no daemons you didn't start, no pip installs.
 Each tier is one file, one sqlite db in `~/.mesh/`, one installer, and a
 hermetic `--selftest` (150–300 checks) that runs in a throwaway tmpdir.
@@ -83,6 +85,10 @@ Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-
 - Selftests are hermetic: tmpdir MESH_DIR, simulated siblings, zero network.
 
 MIT licensed. Issues and PRs welcome.
+
+## Deep dive
+
+- [Running a 10-tier SQLite Agent Mesh on Termux without Thermal Throttling](docs/termux-tutorial.md) — the engineering: tick-driven architecture vs daemons, WAL as the bus, thermal admission control, phantom-process-killer survival.
 
 ## Discussion
 

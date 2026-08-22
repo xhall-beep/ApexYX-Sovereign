@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14">
+  <defs>
+    <style>
+      .l { opacity:0; animation: a .01s linear forwards; }
+      @keyframes a { to { opacity:1; } }
+      .c1{animation-delay:.3s}.c2{animation-delay:1.2s}.c3{animation-delay:1.7s}
+      .c4{animation-delay:2.6s}.c5{animation-delay:3.1s}.c6{animation-delay:4.0s}
+      .c7{animation-delay:4.3s}.c8{animation-delay:4.6s}.c9{animation-delay:5.4s}
+      .c10{animation-delay:5.9s}.c11{animation-delay:6.8s}.c12{animation-delay:7.1s}
+      .c13{animation-delay:7.4s}.c14{animation-delay:7.7s}.c15{animation-delay:8.0s}
+      .cur{animation: b 1s step-end infinite}
+      @keyframes b { 50% { opacity:0 } }
+      text{fill:#c9d1d9}.p{fill:#7ee787}.cmd{fill:#e6edf3}.dim{fill:#8b949e}.ok{fill:#7ee787}.id{fill:#79c0ff}.k{fill:#ffa657}
+    </style>
+  </defs>
+  <rect width="720" height="460" rx="10" fill="#0d1117" stroke="#30363d"/>
+  <rect width="720" height="34" rx="10" fill="#161b22"/>
+  <rect y="24" width="720" height="10" fill="#161b22"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f57"/><circle cx="42" cy="17" r="6" fill="#febc2e"/><circle cx="62" cy="17" r="6" fill="#28c840"/>
+  <text x="360" y="22" text-anchor="middle" class="dim" font-size="12">termux — apexyx mesh</text>
+
+  <text x="20" y="62" class="l c1"><tspan class="p">$</tspan> <tspan class="cmd">mesh post --node me --kind inbox --text "hello mesh"</tspan></text>
+  <text x="20" y="84" class="l c2 id">1</text>
+
+  <text x="20" y="114" class="l c3"><tspan class="p">$</tspan> <tspan class="cmd">mesh task --node me --text "echo hi" --for exec</tspan></text>
+  <text x="20" y="136" class="l c4 id">task2</text>
+
+  <text x="20" y="166" class="l c5"><tspan class="p">$</tspan> <tspan class="cmd">mesh tail</tspan></text>
+  <text x="20" y="188" class="l c6"><tspan class="id">#2</tspan> <tspan class="k">[task]</tspan> me-&gt;exec (new) echo hi</text>
+  <text x="20" y="210" class="l c7"><tspan class="id">#1</tspan> <tspan class="k">[inbox]</tspan> me-&gt;* (new) hello mesh</text>
+
+  <text x="20" y="240" class="l c8"><tspan class="p">$</tspan> <tspan class="cmd">mesh verify</tspan></text>
+  <text x="20" y="262" class="l c9 ok">chain intact</text>
+
+  <text x="20" y="292" class="l c10"><tspan class="p">$</tspan> <tspan class="cmd">mesh status</tspan></text>
+  <text x="20" y="314" class="l c11 dim">{</text>
+  <text x="20" y="336" class="l c12 dim">  "db": "~/.mesh/bus.db",</text>
+  <text x="20" y="358" class="l c13 dim">  "total": 2,</text>
+  <text x="20" y="380" class="l c14 dim">  "by_state": { "new": 2 }</text>
+  <text x="20" y="402" class="l c15 dim">}</text>
+
+  <text x="20" y="436" class="l c15"><tspan class="p">$</tspan> <tspan class="cur cmd">▌</tspan></text>
+</svg>
