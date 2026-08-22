@@ -1,10 +1,10 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # exec_up.sh — install mesh tier 3 (executor loop) on Termux / Pixel 8 Pro
 set -e
 BIN="${PREFIX:+$PREFIX/bin}"; { [ -n "$BIN" ] && [ -d "$BIN" ] && [ -w "$BIN" ]; } || BIN="$HOME/bin"; mkdir -p "$BIN" "$HOME/.mesh"
 cp mesh_exec.py "$HOME/.mesh/mesh_exec.py"; chmod +x "$HOME/.mesh/mesh_exec.py"
 cat > "$BIN/exec" <<'E'
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 exec python3 "$HOME/.mesh/mesh_exec.py" "$@"
 E
 chmod +x "$BIN/exec"
@@ -13,7 +13,7 @@ echo "[1/4] selftest"; python3 "$HOME/.mesh/mesh_exec.py" --selftest
 
 echo "[2/4] worker launchers"
 cat > "$HOME/.mesh/workers_up.sh" <<'W'
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # one worker per node; maestro polls slower (8B is heavy on Tensor G3)
 pkill -f "mesh_exec.py --daemon" 2>/dev/null || true
 nohup exec --daemon --node maestro      --interval 20 >> "$HOME/.mesh/exec_maestro.log" 2>&1 &
@@ -27,7 +27,7 @@ chmod +x "$HOME/.mesh/workers_up.sh"
 echo "[3/4] boot hook"
 mkdir -p "$HOME/.termux/boot"
 cat > "$HOME/.termux/boot/30-mesh-exec" <<'B'
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 sleep 8
 "$HOME/.mesh/workers_up.sh"

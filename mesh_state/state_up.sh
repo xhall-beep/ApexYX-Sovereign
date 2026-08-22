@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # state_up.sh — install + start mesh tier 7 (shared world-model)
 # Safe to re-run. Never touches tier 1-6 state (bus.db, exec.db, sched.db, policy.json, reach.db).
 set -u
@@ -25,7 +25,7 @@ fi
 
 # --- state-ctx: prepend the brief to any prompt before it hits a model --------
 cat > "$BIN/state-ctx" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # state-ctx "<prompt>" [project] — echo prompt with the mesh world-model prepended.
 #   ollama run deepseek-r1-abliterated:8b "\$(state-ctx 'what should I do next?' ARAIKI)"
 B="\$($BIN/mesh_state.py brief \${2:+--project "\$2"} --max-chars 1200)"
@@ -35,7 +35,7 @@ chmod +x "$BIN/state-ctx"
 
 # --- boot hook: ingest daemon ------------------------------------------------
 cat > "$HOME/.termux/boot/70-mesh-state" <<EOF
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 nohup $BIN/mesh_state.py --daemon --interval 300 >> $MESH_DIR/state.log 2>&1 &
 EOF

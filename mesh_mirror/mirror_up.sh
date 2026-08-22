@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # tier 10 — mirror: install, key, first snapshot, boot daemon, aliases.
 set -euo pipefail
 MESH_DIR="${MESH_DIR:-$HOME/.mesh}"
@@ -34,7 +34,7 @@ echo "daemon pid $!  (log: $MESH_DIR/mirror.daemon.log)"
 # survive reboot alongside the other tiers
 mkdir -p "$HOME/.termux/boot"
 cat > "$HOME/.termux/boot/40-mirror.sh" <<B
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 python3 $BIN/mesh_mirror.py --daemon --interval ${MIRROR_INTERVAL:-3600} >> $MESH_DIR/mirror.daemon.log 2>&1 &
 B

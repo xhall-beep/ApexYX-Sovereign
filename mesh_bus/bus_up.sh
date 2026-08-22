@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # bus_up.sh — install mesh tier 1 (the bus). Safe to re-run.
 # Never touches any other tier's state.
 set -u
@@ -10,7 +10,7 @@ install -m 755 "$SRC/mesh_bus.py" "$BIN/mesh_bus.py"
 
 # the `mesh` command every other tier calls
 cat > "$BIN/mesh" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 exec python3 "$BIN/mesh_bus.py" "\$@"
 EOF
 chmod +x "$BIN/mesh"

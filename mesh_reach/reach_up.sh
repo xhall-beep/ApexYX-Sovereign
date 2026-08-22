@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # reach_up.sh — install + start mesh tier 6 (inbox/outbox reach)
 # Safe to re-run. Never touches tier 1-5 state (bus.db, exec.db, sched.db, policy.json).
 set -u
@@ -29,7 +29,7 @@ fi
 
 # --- convenience: drop a task in from anywhere --------------------------------
 cat > "$BIN/mesh-in" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # mesh-in "<text>"  — push text into the mesh from outside (file-drop path)
 printf '%s' "\$*" > "$MESH_DIR/inbox/cli-\$(date +%s%N).txt"
 echo "dropped -> $MESH_DIR/inbox"
@@ -37,7 +37,7 @@ EOF
 chmod +x "$BIN/mesh-in"
 
 cat > "$BIN/mesh-out" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # mesh-out "<text>" [target] — send a message out through the configured sink
 $BIN/mesh_reach.py --send "\$1" --to "\${2:-}"
 EOF
@@ -45,7 +45,7 @@ chmod +x "$BIN/mesh-out"
 
 # --- boot hook ---------------------------------------------------------------
 cat > "$HOME/.termux/boot/60-mesh-reach" <<EOF
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 nohup $BIN/mesh_reach.py --daemon --interval 20 >> $MESH_DIR/reach.log 2>&1 &
 EOF

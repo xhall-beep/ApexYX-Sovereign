@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # learn_up.sh — install + start mesh tier 5 (feedback loop / learned routing)
 # Safe to re-run. Never touches tier 1-4 state (bus.db, exec.db, sched.db).
 set -u
@@ -15,7 +15,7 @@ echo "== selftest =="
 
 # --- smart route: evidence first, tier-2 router as fallback ------------------
 cat > "$BIN/sroute" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # sroute "<task>"  — route using learned policy; fall back to keyword router.
 set -u
 TASK="\$*"
@@ -34,7 +34,7 @@ chmod +x "$BIN/sroute"
 
 # --- boot hook ---------------------------------------------------------------
 cat > "$HOME/.termux/boot/50-mesh-learn" <<EOF
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 nohup $BIN/mesh_learn.py --daemon --interval 60 >> $MESH_DIR/learn.log 2>&1 &
 EOF

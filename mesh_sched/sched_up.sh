@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # sched_up.sh — install + start mesh tier 4 (scheduler / triggers / digest node)
 # Safe to re-run. Does not touch tier 1/2/3 state.
 set -u
@@ -24,7 +24,7 @@ fi
 
 # --- boot hook ---------------------------------------------------------------
 cat > "$HOME/.termux/boot/40-mesh-sched" <<EOF
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 $BIN/mesh_sched.py --boot
 nohup $BIN/mesh_sched.py --daemon --interval 60 >> $MESH_DIR/sched.log 2>&1 &

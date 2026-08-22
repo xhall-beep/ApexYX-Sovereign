@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # router_up.sh — install the router node on Termux (Pixel 8 Pro)
 set -e
 BIN="${PREFIX:+$PREFIX/bin}"; { [ -n "$BIN" ] && [ -d "$BIN" ] && [ -w "$BIN" ]; } || BIN="$HOME/bin"; mkdir -p "$BIN"; MESHDIR="$HOME/.mesh"
@@ -6,7 +6,7 @@ mkdir -p "$MESHDIR"
 cp mesh_router.py "$MESHDIR/mesh_router.py"; chmod +x "$MESHDIR/mesh_router.py"
 
 cat > "$BIN/route" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 exec python3 "$MESHDIR/mesh_router.py" "\$@"
 EOF
 chmod +x "$BIN/route"
@@ -28,7 +28,7 @@ fi
 echo "[3/4] boot hook…"
 mkdir -p "$HOME/.termux/boot"
 cat > "$HOME/.termux/boot/20-router" <<EOF
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 sleep 5
 nohup python3 $MESHDIR/mesh_router.py --daemon >> $MESHDIR/router.log 2>&1 &

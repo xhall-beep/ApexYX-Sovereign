@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # plan_up.sh — install + start mesh tier 8 (planner / orchestrator)
 # Safe to re-run. Never touches tier 1-7 state (bus.db, exec.db, sched.db, policy.json, reach.db, state.db).
 set -u
@@ -15,7 +15,7 @@ echo "== selftest =="
 
 # --- goal: one-liner that plans + immediately starts executing ---------------
 cat > "$BIN/goal" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # goal "<objective>" [project] — decompose, dispatch, then watch progress.
 set -e
 $BIN/mesh_plan.py new "\$1" \${2:+--project "\$2"}
@@ -32,7 +32,7 @@ fi
 
 # --- boot hook ---------------------------------------------------------------
 cat > "$HOME/.termux/boot/80-mesh-plan" <<EOF
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 nohup $BIN/mesh_plan.py --daemon --interval 30 >> $MESH_DIR/plan.log 2>&1 &
 EOF

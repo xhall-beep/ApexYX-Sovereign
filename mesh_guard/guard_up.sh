@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # guard_up.sh — install + start mesh tier 9 (guard: admission control, budgets, audit, kill switch)
 # Safe to re-run. Never touches tier 1-8 state (bus/exec/sched/reach/state/plan dbs, policy.json).
 set -u
@@ -15,7 +15,7 @@ echo "== selftest =="
 
 # --- safe: run anything under the guard ---------------------------------------
 cat > "$BIN/safe" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # safe [--kind model|shell|http|notify] [--node N] [--tokens T] -- <cmd ...>
 exec $BIN/mesh_guard.py wrap "\$@"
 EOF
@@ -29,7 +29,7 @@ fi
 
 # --- boot hook -----------------------------------------------------------------
 cat > "$HOME/.termux/boot/90-mesh-guard" <<EOF
-#!/data/data/com.termux/files/usr/bin/sh
+#!/usr/bin/env sh
 termux-wake-lock
 nohup $BIN/mesh_guard.py --daemon --interval 60 >> $MESH_DIR/guard.log 2>&1 &
 EOF

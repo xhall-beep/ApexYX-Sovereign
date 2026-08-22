@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 # Install every free tier, then prove each one.
 set -e
 for d in mesh_*/; do
