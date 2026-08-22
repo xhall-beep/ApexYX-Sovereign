@@ -1,12 +1,22 @@
 # APEXYX Mesh — a self-testing agent economy that runs on a phone
 
+![selftests](https://img.shields.io/badge/selftests-421%2F421_passing-brightgreen) ![python](https://img.shields.io/badge/python-3.9%2B-blue) ![deps](https://img.shields.io/badge/dependencies-none-lightgrey) ![license](https://img.shields.io/badge/license-MIT-green) ![platform](https://img.shields.io/badge/runs_on-Termux%20%7C%20any%20Linux-orange)
+
 Pure Python 3 + bash. No cloud, no daemons you didn't start, no pip installs.
 Each tier is one file, one sqlite db in `~/.mesh/`, one installer, and a
 hermetic `--selftest` (150–300 checks) that runs in a throwaway tmpdir.
 
 Built and battle-tested on a Google Pixel (Termux). Runs anywhere Python does.
 
-## Install (Termux or any Linux)
+## Install and prove it — one command (Termux or any Linux)
+
+```bash
+git clone https://github.com/xhall-beep/ApexYX-Sovereign.git
+cd ApexYX-Sovereign && bash up_all.sh
+# installs all ten tiers, then runs every selftest — 421 checks, zero network
+```
+
+Or tier by tier:
 
 ```bash
 cd mesh_bus && bash bus_up.sh       # tier 1 first: gives the mesh shared memory
@@ -45,6 +55,9 @@ sealed commitments, escalation ladders, clawbacks, taxpayer-loss accounting.
 
 → Buy it: https://stephenhall8.gumroad.com/l/apexyxpro ($49 CAD, instant download)
 
+Next tier in development: **t35 constitutional layer** — amendments, franchise,
+succession. Pro buyers get every new tier as it ships.
+
 Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-mesh
 
 ## Design rules the whole mesh obeys
@@ -55,3 +68,8 @@ Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-
 - Selftests are hermetic: tmpdir MESH_DIR, simulated siblings, zero network.
 
 MIT licensed. Issues and PRs welcome.
+
+## Related
+
+- **APEXYX Mesh Console** — Android APK (Kivy) running a sealed-chain task bus
+  in your pocket: https://github.com/xhall-beep/APEXYX_ORI_AI
