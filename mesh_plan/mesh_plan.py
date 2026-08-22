@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/env python3
+#!/usr/bin/env python3
 """mesh_plan.py — tier 8 of the Pixel mesh: goal decomposition + orchestration.
 
 t1 bus = messages. t2 router = who. t3 exec = hands. t4 sched = clock.

@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/env python3
+#!/usr/bin/env python3
 """mesh_state.py — tier 7 of the Pixel mesh: the shared world-model.
 
 Tier 1 bus = messages. Tier 2 router = who. Tier 3 exec = hands.

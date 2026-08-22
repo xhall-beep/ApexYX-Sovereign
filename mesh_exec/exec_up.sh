@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # exec_up.sh — install mesh tier 3 (executor loop) on Termux / Pixel 8 Pro
 set -e
-BIN="$PREFIX/bin"; [ -d "$BIN" ] || BIN="$HOME/bin"; mkdir -p "$BIN" "$HOME/.mesh"
+BIN="${PREFIX:+$PREFIX/bin}"; { [ -n "$BIN" ] && [ -d "$BIN" ] && [ -w "$BIN" ]; } || BIN="$HOME/bin"; mkdir -p "$BIN" "$HOME/.mesh"
 cp mesh_exec.py "$HOME/.mesh/mesh_exec.py"; chmod +x "$HOME/.mesh/mesh_exec.py"
 cat > "$BIN/exec" <<'E'
 #!/data/data/com.termux/files/usr/bin/bash

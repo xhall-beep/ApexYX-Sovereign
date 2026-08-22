@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/env python3
+#!/usr/bin/env python3
 """mesh_mirror.py — tier 10 of the Pixel mesh: encrypted snapshots, replication, drift doctor.
 
 t1 bus = messages. t2 router = who. t3 exec = hands. t4 sched = clock.

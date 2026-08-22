@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # router_up.sh — install the router node on Termux (Pixel 8 Pro)
 set -e
-BIN="$PREFIX/bin"; MESHDIR="$HOME/.mesh"
+BIN="${PREFIX:+$PREFIX/bin}"; { [ -n "$BIN" ] && [ -d "$BIN" ] && [ -w "$BIN" ]; } || BIN="$HOME/bin"; mkdir -p "$BIN"; MESHDIR="$HOME/.mesh"
 mkdir -p "$MESHDIR"
 cp mesh_router.py "$MESHDIR/mesh_router.py"; chmod +x "$MESHDIR/mesh_router.py"
 

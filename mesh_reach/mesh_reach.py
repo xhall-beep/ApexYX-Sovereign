@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/env python3
+#!/usr/bin/env python3
 """
 mesh_reach.py — tier 6 of the mesh: REACH (inbox + outbox).
 
