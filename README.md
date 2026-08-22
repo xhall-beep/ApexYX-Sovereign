@@ -2,6 +2,8 @@
 
 ![selftests](https://img.shields.io/badge/selftests-421%2F421_passing-brightgreen) ![python](https://img.shields.io/badge/python-3.9%2B-blue) ![deps](https://img.shields.io/badge/dependencies-none-lightgrey) ![license](https://img.shields.io/badge/license-MIT-green) ![platform](https://img.shields.io/badge/runs_on-Termux%20%7C%20any%20Linux-orange)
 
+`termux` · `android` · `local-ai` · `agentic` · `offline-first` · `self-hosted` · `sqlite`
+
 Pure Python 3 + bash. No cloud, no daemons you didn't start, no pip installs.
 Each tier is one file, one sqlite db in `~/.mesh/`, one installer, and a
 hermetic `--selftest` (150–300 checks) that runs in a throwaway tmpdir.
@@ -11,10 +13,23 @@ Built and battle-tested on a Google Pixel (Termux). Runs anywhere Python does.
 ## Install and prove it — one command (Termux or any Linux)
 
 ```bash
+# Termux only: pkg install python git   (Linux: python3 + git, already there)
 git clone https://github.com/xhall-beep/ApexYX-Sovereign.git
 cd ApexYX-Sovereign && bash up_all.sh
 # installs all ten tiers, then runs every selftest — 421 checks, zero network
 ```
+
+## Your first 60 seconds on the bus
+
+```bash
+mesh post --node me --kind inbox --text "hello mesh"   # feed the router
+mesh task --node me --text "echo hi" --for exec        # address a worker
+mesh tail                                              # watch the event stream
+mesh verify                                            # prove the sealed chain is intact
+mesh status                                            # who's alive, what's pending
+```
+
+If `mesh` isn't found, open a new shell (the installer adds `~/bin` to PATH).
 
 Or tier by tier:
 
@@ -68,6 +83,10 @@ Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-
 - Selftests are hermetic: tmpdir MESH_DIR, simulated siblings, zero network.
 
 MIT licensed. Issues and PRs welcome.
+
+## Discussion
+
+- Hacker News: https://news.ycombinator.com/item?id=49398962
 
 ## Related
 
