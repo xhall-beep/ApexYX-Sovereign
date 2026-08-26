@@ -59,21 +59,30 @@ python3 mesh_router.py --selftest      # prove it before you trust it
 Every node degrades gracefully if the bus is offline — install t1 first anyway;
 it's what turns nine scripts into one organism.
 
-## Pro: tiers 11–34 (paid)
+## Pro: tiers 11–35 (paid)
 
 The full financial-grade stack: federation, sensing, voice, recall, reasoning,
 safe-act, negotiation, self-repair, forecasting, budgeting, markets, coalitions,
 staking, insurance, reinsurance, solvency, liquidity, clearing/CCP, recovery,
-macroprudential control, supervision, accountability, a fiscal backstop, and a polity tier —
+macroprudential control, supervision, accountability, a fiscal backstop, a polity tier —
 mandates, legislature votes, vetoes, sunset clocks and a debt brake deciding
-who may aim that backstop —
+who may aim that backstop — and now a **constitutional layer**:
 sealed commitments, escalation ladders, clawbacks, taxpayer-loss accounting.
 **5,000+ hermetic self-test checks across the stack.**
 
 → Buy it: https://stephenhall8.gumroad.com/l/apexyxpro ($49 CAD, instant download)
 
-Next tier in development: **t35 constitutional layer** — amendments, franchise,
-succession. Pro buyers get every new tier as it ships.
+**NEW — t35 constitutional layer just shipped:** entrenched amendment-proof
+articles, amendments ratified only by 3/4 of the whole franchise with
+hash-chained article version lineage (tamper a ratified article and the chain
+breaks), citizenship that is earned by verified work and losable for sealed
+cause, and office succession — quorum-declared incapacity, heirs that skip
+the fallen and the suspended, regencies that sunset back to the rightful
+holder. 43 hermetic selftest checks. Pro buyers get every new tier as it
+ships — re-open your download link for the updated bundle.
+
+Next tier in development: **t36 judiciary** — case law over sealed records,
+adversarial review, remedies.
 
 Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-mesh
 
