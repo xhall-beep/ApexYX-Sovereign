@@ -59,7 +59,7 @@ python3 mesh_router.py --selftest      # prove it before you trust it
 Every node degrades gracefully if the bus is offline — install t1 first anyway;
 it's what turns nine scripts into one organism.
 
-## Pro: tiers 11–35 (paid)
+## Pro: tiers 11–36 (paid)
 
 The full financial-grade stack: federation, sensing, voice, recall, reasoning,
 safe-act, negotiation, self-repair, forecasting, budgeting, markets, coalitions,
@@ -72,17 +72,22 @@ sealed commitments, escalation ladders, clawbacks, taxpayer-loss accounting.
 
 → Buy it: https://stephenhall8.gumroad.com/l/apexyxpro ($49 CAD, instant download)
 
-**NEW — t35 constitutional layer just shipped:** entrenched amendment-proof
-articles, amendments ratified only by 3/4 of the whole franchise with
-hash-chained article version lineage (tamper a ratified article and the chain
-breaks), citizenship that is earned by verified work and losable for sealed
-cause, and office succession — quorum-declared incapacity, heirs that skip
-the fallen and the suspended, regencies that sunset back to the rightful
-holder. 43 hermetic selftest checks. Pro buyers get every new tier as it
-ships — re-open your download link for the updated bundle.
+**NEW — t36 judiciary just shipped:** the constitution is now justiciable.
+Citizens file cases against specific sealed records (standing from the t35
+franchise; entrenched articles are non-justiciable). No ex-parte justice —
+both sides lodge sealed briefs before a 3-judge panel is empaneled
+deterministically (hash-seeded, parties and suspended nodes excluded: nobody
+picks their own bench). Holdings hash-chain per question into binding case
+law — a bare majority facing contrary precedent merely distinguishes,
+overruling takes a unanimous bench. Upheld cases carry enforceable remedies
+(restitution, void-that-marks-never-deletes, franchise referral) that expire
+on a clock with the default sealed, never silent. 52 hermetic selftest
+checks. t35 constitution (43 checks) shipped previously. Pro buyers get
+every new tier as it ships — re-open your download link for the updated
+bundle.
 
-Next tier in development: **t36 judiciary** — case law over sealed records,
-adversarial review, remedies.
+Next tier in development: **t37 treaties** — sealed inter-mesh compacts,
+mutual recognition, breach arbitration.
 
 Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-mesh
 
