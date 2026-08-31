@@ -72,22 +72,28 @@ sealed commitments, escalation ladders, clawbacks, taxpayer-loss accounting.
 
 → Buy it: https://stephenhall8.gumroad.com/l/apexyxpro ($49 CAD, instant download)
 
-**NEW — t36 judiciary just shipped:** the constitution is now justiciable.
-Citizens file cases against specific sealed records (standing from the t35
-franchise; entrenched articles are non-justiciable). No ex-parte justice —
-both sides lodge sealed briefs before a 3-judge panel is empaneled
-deterministically (hash-seeded, parties and suspended nodes excluded: nobody
-picks their own bench). Holdings hash-chain per question into binding case
-law — a bare majority facing contrary precedent merely distinguishes,
-overruling takes a unanimous bench. Upheld cases carry enforceable remedies
-(restitution, void-that-marks-never-deletes, franchise referral) that expire
-on a clock with the default sealed, never silent. 52 hermetic selftest
-checks. t35 constitution (43 checks) shipped previously. Pro buyers get
-every new tier as it ships — re-open your download link for the updated
-bundle.
+**NEW — t37 treaties just shipped:** the mesh now has a foreign policy that
+cannot outrank its constitution. A citizen proposes a compact against a named
+foreign mesh; ratification takes a majority of the WHOLE t35 franchise (one
+node one vote) AND the counterparty's countersign — a hash bound to the exact
+sealed treaty text, so text tampering or seal-swapping voids accession. The
+entrenched core (art.seals, art.sunset, art.onevote) is non-derogable: a
+compact touching it cannot even be proposed. Entry into force grants mutual
+recognition and comity — foreign parties gain standing to file breach claims
+via a pubseal-derived token. Breach arbitration is adversarial (claim AND
+reply sealed before a deterministic 3-node tribunal): majority finds the
+breach founded, awards are enforceable on a 14-day clock — reparations,
+suspension-that-marks, or a denunciation referral (arbitrators cannot kill a
+treaty; termination goes back to the franchise). Exit is lawful but never
+silent: a sealed 14-day notice window, or sunset after the term. Treaties per
+counterparty and awards per treaty hash-chain into tamper-evident lineages.
+69 hermetic selftest checks. t36 judiciary (52) and t35 constitution (43)
+shipped previously. Pro buyers get every new tier as it ships — re-open your
+download link for the updated bundle.
 
-Next tier in development: **t37 treaties** — sealed inter-mesh compacts,
-mutual recognition, breach arbitration.
+Next tier in development: **t38 succession-of-state** — what happens to
+treaties, case law, and the franchise when a mesh forks, merges, or migrates
+hardware.
 
 Full story + free download mirror: https://slackstack-1a8ac6.viktor.page/apexyx-mesh
 
