@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  selftest:
+    name: Compile + mesh selftests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile all tiers
+        run: python3 -m py_compile $(find mesh_* -name "*.py")
+      - name: Run hermetic selftests
+        run: |
+          set -e
+          for tier in mesh_bus mesh_exec mesh_guard mesh_learn mesh_mirror mesh_plan mesh_reach mesh_router mesh_sched mesh_state; do
+            echo "== $tier =="
+            python3 "$tier/${tier}.py" --selftest
+          done
