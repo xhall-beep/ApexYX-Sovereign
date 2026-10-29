@@ -1,0 +1,12 @@
+# sovereign_core --selftest
+  ok   boots: bus + guard dbs created
+  ok   mesh CLI shim installed
+  ok   task claimed and closed
+  ok   result written back to bus
+  ok   guard lease opened and closed
+  ok   guard recorded shell usage
+  ok   guard audit chain verifies
+  ok   inbox routed and executed
+  ok   guard-denied task closed with denial
+
+9 passed, 0 failed

@@ -1,6 +1,6 @@
 # APEXYX Mesh — a self-testing agent economy that runs on a phone
 
-![selftests](https://img.shields.io/badge/selftests-411%2F421_passing-yellow) ![python](https://img.shields.io/badge/python-3.9%2B-blue) ![deps](https://img.shields.io/badge/dependencies-none-lightgrey) ![license](https://img.shields.io/badge/license-MIT-green) ![platform](https://img.shields.io/badge/runs_on-Termux%20%7C%20any%20Linux-orange)
+![selftests](https://img.shields.io/badge/selftests-421%2F421_passing-green) ![python](https://img.shields.io/badge/python-3.9%2B-blue) ![deps](https://img.shields.io/badge/dependencies-none-lightgrey) ![license](https://img.shields.io/badge/license-MIT-green) ![platform](https://img.shields.io/badge/runs_on-Termux%20%7C%20any%20Linux-orange)
 
 `termux` · `android` · `local-ai` · `agentic` · `offline-first` · `self-hosted` · `sqlite`
 
@@ -19,7 +19,7 @@ Built and battle-tested on a Google Pixel (Termux). Runs anywhere Python does.
 git clone https://github.com/xhall-beep/ApexYX-Sovereign.git
 cd ApexYX-Sovereign && bash up_all.sh
 # installs all ten tiers, then runs every selftest — 421 checks, zero network
-# (411 of 421 passing — see "Selftest status" at the end of this README)
+# (421 of 421 passing — see "Selftest status" at the end of this README)
 ```
 
 ## Your first 60 seconds on the bus
@@ -59,6 +59,22 @@ python3 mesh_router.py --selftest      # prove it before you trust it
 
 Every node degrades gracefully if the bus is offline — install t1 first anyway;
 it's what turns nine scripts into one organism.
+
+## The conductor: sovereign_core.py
+
+The tiers are separate CLIs/daemons that coordinate through the bus.
+`sovereign_core.py` (repo root) runs the whole loop as one tick-driven
+process — the architecture `docs/termux-tutorial.md` argues for: scheduler
+tick → route unrouted inbox items → guard admission (a real lease per
+task; denials close the task with a denial result, deferrals stay queued)
+→ execute through tier 3's handlers → results back on the bus and into
+`results.jsonl` for the tier-4 digest.
+
+```bash
+python3 sovereign_core.py --once       # one tick, prints a JSON summary
+python3 sovereign_core.py --daemon     # tick forever (--interval S)
+python3 sovereign_core.py --selftest   # hermetic proof (9 checks, tmpdir)
+```
 
 ## Pro: tiers 11–36 (paid)
 
@@ -120,17 +136,17 @@ MIT licensed. Issues and PRs welcome.
 - **APEXYX Mesh Console** — Android APK (Kivy) running a sealed-chain task bus
   in your pocket: https://github.com/xhall-beep/APEXYX_ORI_AI
 
-## Selftest status (verified 2026-10-28)
+## Selftest status (verified 2026-10-29)
 
-All ten tiers' hermetic selftests were run end-to-end on 2026-10-28
-(the CI commands, on the estate VM). Honest totals: **411 of 421
+All ten tiers' hermetic selftests were run end-to-end in-tree
+(the CI commands, on the estate VM). Honest totals: **421 of 421
 checks pass.** Per tier:
 
 | Tier | Result |
 |---|---|
 | mesh_bus | 125/125 |
 | mesh_exec | 6/6 |
-| mesh_guard | **39/49 — 10 failing** |
+| mesh_guard | 49/49 |
 | mesh_learn | 23/23 |
 | mesh_mirror | 94/94 |
 | mesh_plan | 32/32 |
@@ -138,11 +154,16 @@ checks pass.** Per tier:
 | mesh_router | 5/5 (keyword engine; model engine untested offline) |
 | mesh_sched | 19/19 |
 | mesh_state | 38/38 |
+| sovereign_core | 9/9 (new; the conductor's own checks, outside the 421) |
 
-The mesh_guard failures are its lease/budget admission checks:
-*first model admitted*, *second model deferred (conc 1)*, *release
-closes lease*, *model admitted after release*, *per-node cap of 2
-holds*, *usage recorded*, *over budget denied*, *shell budget counts
-calls*, *wrap runs allowed cmd*, *wrap propagates rc*. They are
-recorded here rather than smoothed over; the other nine tiers —
-including the bus itself — are fully green.
+The mesh_guard lease/budget failures recorded on 2026-10-28
+(39/49) were root-caused and fixed in the guard code — no test was
+touched. The guard's storage sensor measured free space on whatever
+volume held MESH_DIR; in the hermetic selftest that is a tmpdir, and
+on a small tmpfs (this VM's /tmp is 512 MB) it read scratch-RAM
+headroom as a nearly-full disk, so `decide()` denied every
+model/shell admission and the lease/budget/wrap checks cascaded.
+The sensor now recognises tmpfs/ramfs mounts and measures the home
+volume instead — the persistent storage the floor exists to protect.
+The suite passes both normally and with /tmp deliberately filled to
+the recorded failure condition (358 MB free).

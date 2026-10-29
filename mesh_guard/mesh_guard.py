@@ -209,9 +209,38 @@ def _network():
     return "none"
 
 
+def _fs_type(path):
+    """Filesystem type of the mount holding path, via /proc/self/mounts."""
+    try:
+        rp = os.path.realpath(path)
+        best, best_len = None, -1
+        with open("/proc/self/mounts") as f:
+            for line in f:
+                parts = line.split()
+                if len(parts) < 3:
+                    continue
+                mp = parts[1].replace("\\040", " ")
+                if (rp == mp or rp.startswith(mp.rstrip("/") + "/")) and len(mp) > best_len:
+                    best, best_len = parts[2], len(mp)
+        return best
+    except Exception:
+        return None
+
+
 def _free_mb(path=None):
     try:
-        u = shutil.disk_usage(path or MESH_DIR)
+        p = path or MESH_DIR
+        if _fs_type(p) in ("tmpfs", "ramfs"):
+            # tmpfs/ramfs "free space" is shared RAM, not storage — and the
+            # free_mb_min floor in decide() exists to protect persistent
+            # storage. A MESH_DIR on a small tmpfs (a container /tmp, the
+            # hermetic selftest's tmpdir) otherwise reads as a nearly-full
+            # disk and denies every model/shell admission. Measure the home
+            # volume instead: that is the storage the guard actually guards.
+            home = os.path.expanduser("~")
+            if home and os.path.realpath(home) != os.path.realpath(p):
+                p = home
+        u = shutil.disk_usage(p)
         return int(u.free / (1024 * 1024))
     except Exception:
         return None

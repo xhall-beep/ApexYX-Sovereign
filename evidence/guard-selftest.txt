@@ -1,0 +1,53 @@
+# mesh_guard standalone — normal
+guard: defer — kill switch: pause (test) (retry in 300s)
+  ok   sense returns keys
+  ok   sense cached
+  ok   free_mb positive
+  ok   loadavg numeric
+  ok   allow model when healthy
+  ok   allow shell when healthy
+  ok   allow http when healthy
+  ok   allow notify when healthy
+  ok   low batt defers shell
+  ok   low batt allows notify
+  ok   mid batt defers model
+  ok   charging ignores batt floor
+  ok   hot denies model
+  ok   warm defers model
+  ok   warm allows http
+  ok   hot denies shell
+  ok   no net defers http
+  ok   mobile ok by default
+  ok   wifi-only policy defers mobile
+  ok   low storage denies shell
+  ok   high load defers model
+  ok   unknown kind denied
+  ok   first model admitted
+  ok   second model deferred (conc 1)
+  ok   release closes lease
+  ok   model admitted after release
+  ok   per-node cap of 2 holds
+  ok   usage recorded
+  ok   over budget denied
+  ok   under budget allowed
+  ok   shell budget counts calls
+  ok   pause defers everything
+  ok   flag file written
+  ok   halt denies
+  ok   resume allows
+  ok   zombie lease reaped
+  ok   release of unknown lease is False
+  ok   audit chain verifies (16 recs)
+  ok   tamper detected
+  ok   audit_write bootstraps
+  ok   wrap runs allowed cmd
+  ok   wrap propagates rc
+  ok   wrap blocked when paused
+  ok   no leases leaked by wrap
+  ok   parse_window 2h
+  ok   parse_window bad
+  ok   bar renders
+  ok   policy merges defaults
+  ok   exit codes distinct
+
+49 passed, 0 failed

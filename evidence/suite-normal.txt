@@ -1,0 +1,23 @@
+# full suite — normal conditions — 2026-10-29T00:29:02Z
+== mesh_bus ==
+125/125 checks passed (hermetic: tmpdir bus, no network)
+== mesh_exec ==
+6/6 checks passed (bus + ollama not required)
+== mesh_guard ==
+49 passed, 0 failed
+== mesh_learn ==
+23/23 checks passed
+== mesh_mirror ==
+94 passed, 0 failed
+== mesh_plan ==
+32/32 passed
+== mesh_reach ==
+30 passed, 0 failed
+== mesh_router ==
+5/5 keyword-engine cases OK (model engine untested offline)
+== mesh_sched ==
+19/19 checks passed (no bus, no ollama, no waiting required)
+== mesh_state ==
+38 passed, 0 failed
+== sovereign_core ==
+9 passed, 0 failed

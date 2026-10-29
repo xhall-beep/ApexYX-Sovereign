@@ -1,0 +1,13 @@
+# out-of-process smoke: seed via tier-1 CLI, one tick, inspect
+task1
+2
+[core] routed #2 -> maestro (keyword)
+[core] #1 done (maestro, 9 chars)
+[core] #3 done (maestro, 9 chars)
+{"sched_fired": 0, "routed": 1, "done": 2, "failed": 0, "deferred": 0, "denied": 0}
+#5 [result] maestro->* (new) {"task": 3, "ok": true, "result": "smoke-two"}
+#4 [result] maestro->* (new) {"task": 1, "ok": true, "result": "smoke-one"}
+#3 [task] sovereign->maestro (done) shell:echo smoke-two
+#2 [inbox] tester->* (done) shell:echo smoke-two
+#1 [task] tester->maestro (done) shell:echo smoke-one
+chain intact
