@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Compile all tiers
-        run: python3 -m py_compile $(find mesh_* -name "*.py")
+        run: python3 -m py_compile sovereign_core.py $(find mesh_* -name "*.py")
       - name: Run hermetic selftests
         run: |
           set -e
